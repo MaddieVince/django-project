@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!-- {% block stylesheets %}
+    <link rel="stylesheet" type = "text/css" href = "{% static 'news/styles.css' %}">
+{% endblock %} -->
+
+{% block content %}
+
+<div id="user-wrapper">
+    <h2>User Profile</h2> 
+    <h3>{{ user.username }}</h3>
+    <h4>{{ user.email }}</h4>
+    <!-- <div id="story-content">
+        {% if "http" in story.image_url %}
+            <img src= {{ story.image_url }}>
+        {% else %}
+            <img src = "https://picsum.photos/600">
+        {% endif %}
+        {{ story.content|linebreaks }}
+    </div> -->
+</div>
+
+{% endblock %}
