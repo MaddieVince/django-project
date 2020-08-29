@@ -9,5 +9,5 @@ class NewsStory(models.Model):
         on_delete = models.CASCADE
     )
     pub_date = models.DateTimeField()
-    image_url = models.CharField(max_length=200, default="https://picsum.photos/600")
+    image_url = models.URLField(max_length=200, blank=True)
     content = models.TextField()
