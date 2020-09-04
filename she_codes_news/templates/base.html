@@ -21,6 +21,10 @@
                 </a>
             </div>
             {% include './nav.html' %}
+            {% if request.user.is_authenticated %}
+                <img id="pro-pic" src="https://api.adorable.io/avatars/285/{{ user.email }}.png">
+            {% else %}
+            {% endif %}
         </header>
         
         <!-- content blocks here -->

@@ -9,10 +9,10 @@
 
 <div id="story-wrapper">
     <h2>{{ story.title }}</h2>
-    <h4><a href="{% url 'users:viewAuthor' story.author %}">{{ story.author }}</a></h4>    
+    <h5><a href="{% url 'users:viewAuthor' story.author.id %}">{{ story.author }}</a></h5>    
     <div id="story-content">
         {% if "http" in story.image_url %}
-            <img src= {{ story.image_url }}>
+            <img src= "{{ story.image_url }}">
         {% else %}
             <img src = "https://picsum.photos/600">
         {% endif %}

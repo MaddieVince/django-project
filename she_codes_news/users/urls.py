@@ -13,5 +13,5 @@ urlpatterns = [
     path('<int:pk>/',
     UserAccountView.as_view(),
     name='viewAccount'),
-    path('<str:username>', AuthorView.as_view(), name='viewAuthor')
+    path('viewAuthor/<int:pk>/', AuthorView.as_view(), name='viewAuthor')
 ]

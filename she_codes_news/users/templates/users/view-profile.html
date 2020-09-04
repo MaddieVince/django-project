@@ -1,24 +1,44 @@
 {% extends "base.html" %}
 {% load static %}
 
-<!-- {% block stylesheets %}
-    <link rel="stylesheet" type = "text/css" href = "{% static 'news/styles.css' %}">
-{% endblock %} -->
+{% block stylesheets %}
+    <link rel="stylesheet" type = "text/css" href = "{% static 'users/styles.css' %}">
+{% endblock %}
 
 {% block content %}
 
-<div id="user-wrapper">
-    <h2>User Profile</h2> 
-    <h3>{{ user.username }}</h3>
-    <h4>{{ user.email }}</h4>
-    <!-- <div id="story-content">
-        {% if "http" in story.image_url %}
-            <img src= {{ story.image_url }}>
-        {% else %}
-            <img src = "https://picsum.photos/600">
-        {% endif %}
-        {{ story.content|linebreaks }}
-    </div> -->
+<h2>User Profile</h2>
+
+<div id = "user-card">
+    <div id="user-wrapper">
+        <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+        <h4>Username: {{ user.username }}</h4>
+        <h4>Email: {{ user.email }}</h4>
+        <h4>Date of Birth: {{ user.birth_date }}</h4>
+        <h4>Biography:</h4>
+        <p>{{ user.biography }}</p>
+        <h4>{% if user.is_author %}
+                <H2>You are an author at <br> She {Codes} News</H2>
+            {% else %}
+                <p>You are a reader of She {Codes} News</p>
+            {% endif %}</h4>
+        <br><br>
+    </div>
+
+    <div id="pic-wrapper">
+        <img id="user-image" src="https://api.adorable.io/avatars/285/{{ user.email }}.png">
+    </div>
 </div>
+
+<div id="all-stories">
+
+<!-- <h2>Stories you have written so far... </h2>
+</div>
+
+<div id="all-stories">
+    {% for story in author_stories %}
+    {% include "news/storyCard.html" with story=story %}
+    {% endfor %}
+</div> -->
 
 {% endblock %}

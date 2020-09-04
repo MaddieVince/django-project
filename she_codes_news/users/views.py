@@ -22,7 +22,20 @@ class UserAccountView(generic.DetailView):
 
 class AuthorView(generic.ListView):
     template_name = 'users/author-detail.html'
-    model = CustomUser
+    model = NewsStory
+    context_object_name = 'story'
 
     def __str__(self):
         return self.username
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        username = self.kwargs['pk']
+        context['author_stories'] = NewsStory.objects.filter(author=username)
+        return context
+
+    # def get_author_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     username = self.kwargs['pk']
+    #     context['author_details'] = NewsStory.objects.filter(author=username)
+    #     return context

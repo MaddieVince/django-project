@@ -52,3 +52,9 @@ a {
 a, p {
     font-family: monospace;
 }
+
+#pro-pic{
+    width: 70px;
+    padding: 10px;
+
+}
